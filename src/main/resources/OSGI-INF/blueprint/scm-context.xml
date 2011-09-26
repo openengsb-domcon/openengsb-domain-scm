@@ -50,9 +50,30 @@
     <property name="workflowService" ref="workflowService" />
     <property name="edbService" ref="edbService" />
   </bean>
+  
+  <service interface="org.openengsb.core.api.security.PermissionProvider">
+    <service-properties>
+      <entry key="permissionClass" value="org.openengsb.domain.scm.RepositoryFilePermission" />
+    </service-properties>
+    <bean class="org.openengsb.domain.scm.ScmPermissionProvider" />
+  </service>
+
+  <service interface="org.openengsb.core.api.security.SpecialAccessControlHandler">
+    <service-properties>
+      <entry key="controlHandler.id" value="scm-repository-file" />
+    </service-properties>
+    <bean class="org.openengsb.domain.scm.FilePathAccessControlHandler">
+      <property name="userManager" ref="userManager" />
+      <property name="attributeProviders" ref="attributeProviders" />
+    </bean>
+  </service>
 
   <reference id="edbService" interface="org.openengsb.core.api.edb.EngineeringDatabaseService" />
   <reference id="contextService" interface="org.openengsb.core.api.context.ContextService" />
   <reference id="workflowService" interface="org.openengsb.core.api.workflow.WorkflowService" />
-  
+  <reference id="userManager" interface="org.openengsb.core.api.security.service.UserDataManager" />
+  <reference-list id="attributeProviders" interface="org.openengsb.core.api.security.SecurityAttributeProvider"
+    availability="optional" />
+
+
 </blueprint>

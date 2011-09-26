@@ -21,6 +21,8 @@ import java.io.File;
 import java.util.List;
 
 import org.openengsb.core.api.Domain;
+import org.openengsb.core.api.security.annotation.SecurityAttribute;
+import org.openengsb.core.api.security.annotation.SpecialAccessControl;
 
 /**
  * ScmDomain is an abstraction for working with SCM tools.
@@ -38,38 +40,50 @@ public interface ScmDomain extends Domain {
      * Exports the files and directories of the HEAD revision from a repository without the SCM specific data in a
      * compressed format.
      */
+    @SpecialAccessControl("scm-repository-file")
+    @SecurityAttribute(key = "file.operation", value = "read")
     byte[] export();
 
     /**
      * Exports the files and directories of a revision identified by the {@link CommitRef} from a repository without the
      * SCM specific data in a compressed format.
      */
+    @SpecialAccessControl("scm-repository-file")
+    @SecurityAttribute(key = "file.operation", value = "read")
     byte[] export(CommitRef ref);
 
     /**
      * Check if file identified by its {@code fileName} exists in the HEAD revision and returns <code>true</code> if it
      * does.
      */
-    boolean exists(String file);
+    @SpecialAccessControl("scm-repository-file")
+    @SecurityAttribute(key = "file.operation", value = "read")
+    boolean exists(@PathParameter String file);
 
     /**
      * Retrieves a single {@link File} from a repository identified by its {@code fileName} if it exists in the HEAD
      * revision. If the file does not exist in the revision <code>null</code> will be returned.
      */
-    byte[] get(String file);
+    @SpecialAccessControl("scm-repository-file")
+    @SecurityAttribute(key = "file.operation", value = "read")
+    byte[] get(@PathParameter String file);
 
     /**
      * Check if file identified by its {@code fileName} exists in a revision identified by the {@link CommitRef} and
      * returns <code>true</code> if it does.
      */
-    boolean exists(String fileName, CommitRef version);
+    @SpecialAccessControl("scm-repository-file")
+    @SecurityAttribute(key = "file.operation", value = "read")
+    boolean exists(@PathParameter String fileName, CommitRef version);
 
     /**
      * Retrieves a single {@link File} from a repository identified by its {@code fileName} if it exists in the revision
      * identified by the {@link CommitRef}. If the file does not exist in the revision <code>null</code> will be
      * returned.
      */
-    byte[] get(String fileName, CommitRef ref);
+    @SpecialAccessControl("scm-repository-file")
+    @SecurityAttribute(key = "file.operation", value = "read")
+    byte[] get(@PathParameter String fileName, CommitRef ref);
 
     /**
      * Returns the {@link CommitRef} of the current HEAD in the repository or <code>null</code>.
@@ -80,13 +94,17 @@ public interface ScmDomain extends Domain {
      * Adds one or more {@link File} existing in the working directory to the repository and commits them with the
      * passed {@code comment}. Returns the {@link CommitRef} of the commit triggered.
      */
-    CommitRef add(String comment, String path, byte[] content);
+    @SpecialAccessControl("scm-repository-file")
+    @SecurityAttribute(key = "file.operation", value = "write")
+    CommitRef add(String comment, @PathParameter String path, byte[] content);
 
     /**
      * Removes one or more {@link File} from the working directory of the repository and commits them with a passed
      * {@code comment}. Returns the {@link CommitRef} of the commit triggered.
      */
-    CommitRef remove(String comment, String... path);
+    @SpecialAccessControl("scm-repository-file")
+    @SecurityAttribute(key = "file.operation", value = "write")
+    CommitRef remove(String comment, @PathParameter String... path);
 
     /**
      * Tags the actual HEAD of the repository with the passed {@code tagName} and returns the corresponding
