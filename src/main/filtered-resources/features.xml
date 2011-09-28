@@ -22,8 +22,8 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://karaf.apache.org/xmlns/features/v1.0.0 http://karaf.apache.org/xmlns/features/v1.0.0" >
   <feature name="openengsb-domain-scm" version="${project.version}" >
-    <feature version="${openengsb.version.range}">openengsb-core</feature>
-    <bundle>mvn:org.openengsb.domain/openengsb-domain-scm/${project.version}</bundle>
+    <feature version="${openengsb.version.range}">openengsb-framework</feature>
+    <bundle>mvn:org.openengsb.domain/org.openengsb.domain.scm/${project.version}</bundle>
   </feature>
 </features>
 
