@@ -19,6 +19,7 @@ package org.openengsb.domain.scm;
 
 import java.io.File;
 import java.util.List;
+import java.util.Map;
 
 import org.openengsb.core.api.Domain;
 
@@ -40,14 +41,14 @@ public interface ScmDomain extends Domain {
      * Exports the files and directories of the HEAD revision from a repository
      * without the SCM specific data in a compressed format.
      */
-    File export();
+    byte[] export();
 
     /**
      * Exports the files and directories of a revision identified by the
      * {@link CommitRef} from a repository without the SCM specific data in a
      * compressed format.
      */
-    File export(CommitRef ref);
+    byte[] export(CommitRef ref);
 
     /**
      * Check if file identified by its {@code fileName} exists in the HEAD
@@ -60,7 +61,7 @@ public interface ScmDomain extends Domain {
      * {@code fileName} if it exists in the HEAD revision. If the file does not
      * exist in the revision <code>null</code> will be returned.
      */
-    File get(String file);
+    byte[] get(String file);
 
     /**
      * Check if file identified by its {@code fileName} exists in a revision
@@ -75,7 +76,7 @@ public interface ScmDomain extends Domain {
      * {@link CommitRef}. If the file does not exist in the revision
      * <code>null</code> will be returned.
      */
-    File get(String fileName, CommitRef ref);
+    byte[] get(String fileName, CommitRef ref);
 
     /**
      * Returns the {@link CommitRef} of the current HEAD in the repository or
@@ -88,14 +89,16 @@ public interface ScmDomain extends Domain {
      * repository and commits them with the passed {@code comment}. Returns the
      * {@link CommitRef} of the commit triggered.
      */
-    CommitRef add(String comment, File... file);
+    CommitRef add(String comment, String path, byte[] content);
+
+    CommitRef add(String comment, Map<String, byte[]> files);
 
     /**
      * Removes one or more {@link File} from the working directory of the
      * repository and commits them with a passed {@code comment}. Returns the
      * {@link CommitRef} of the commit triggered.
      */
-    CommitRef remove(String comment, File... file);
+    CommitRef remove(String comment, String... path);
 
     /**
      * Tags the actual HEAD of the repository with the passed {@code tagName}
