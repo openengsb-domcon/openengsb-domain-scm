@@ -22,6 +22,7 @@ import java.util.List;
 
 import org.openengsb.core.api.Domain;
 import org.openengsb.core.api.model.OpenEngSBFileModel;
+import org.openengsb.core.api.Raises;
 
 // @extract-start ScmDomain
 
@@ -37,6 +38,8 @@ public interface ScmDomain extends Domain {
      * {@link CommitRef} with the revisions produced since the last update or
      * <code>null</code>.
      */
+    @Deprecated
+    @Raises({ ScmUpdateEvent.class })
     List<CommitRef> update();
 
     /**
