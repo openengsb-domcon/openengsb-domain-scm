@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.openengsb.core.api.Domain;
+import org.openengsb.core.api.Raises;
 
 /**
  * ScmDomain is an abstraction for working with SCM tools.
@@ -33,6 +34,8 @@ public interface ScmDomain extends Domain {
      * Looks up changes in a remote repository and updates the local repository or checks out a new local repository and
      * returns a list of {@link CommitRef} with the revisions produced since the last update or <code>null</code>.
      */
+    @Deprecated
+    @Raises({ UpdateEvent.class })
     List<CommitRef> update();
 
     /**
