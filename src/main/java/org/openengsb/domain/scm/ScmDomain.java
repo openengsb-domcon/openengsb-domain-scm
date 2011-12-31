@@ -22,6 +22,8 @@ import java.util.List;
 
 import org.openengsb.core.api.Domain;
 
+// @extract-start ScmDomain
+
 /**
  * ScmDomain is an abstraction for working with SCM tools.
  * 
@@ -117,3 +119,4 @@ public interface ScmDomain extends Domain {
     CommitRef getCommitRefForTag(TagRef ref);
 
 }
+// @extract-end

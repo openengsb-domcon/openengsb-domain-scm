@@ -19,6 +19,8 @@ package org.openengsb.domain.scm;
 
 import org.openengsb.core.api.DomainEvents;
 
+// @extract-start ScmDomainEvents
 public interface ScmDomainEvents extends DomainEvents {
 
 }
+// @extract-end
