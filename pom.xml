@@ -50,6 +50,8 @@
   </description>
 
   <url>http://www.openengsb.org</url>
+  
+  <inceptionYear>2009</inceptionYear>
 
   <licenses>
     <license>
@@ -65,6 +67,16 @@
     <url>http://github.com/openengsb/openengsb-domain-scm</url>
   </scm>
 
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://issues.openengsb.org/jira/browse/OPENENGSB</url>
+  </issueManagement>
+
+  <ciManagement>
+    <system>OpenCIT</system>
+    <url>http://build.openengsb.org/opencit/</url>
+  </ciManagement>
+  
   <build>
     <plugins>
       <plugin>
