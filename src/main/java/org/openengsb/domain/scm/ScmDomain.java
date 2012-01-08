@@ -21,6 +21,7 @@ import java.io.File;
 import java.util.List;
 
 import org.openengsb.core.api.Domain;
+import org.openengsb.core.api.model.OpenEngSBFileModel;
 
 // @extract-start ScmDomain
 
@@ -42,14 +43,14 @@ public interface ScmDomain extends Domain {
      * Exports the files and directories of the HEAD revision from a repository
      * without the SCM specific data in a compressed format.
      */
-    File export();
+    OpenEngSBFileModel export();
 
     /**
      * Exports the files and directories of a revision identified by the
      * {@link CommitRef} from a repository without the SCM specific data in a
      * compressed format.
      */
-    File export(CommitRef ref);
+    OpenEngSBFileModel export(CommitRef ref);
 
     /**
      * Check if file identified by its {@code fileName} exists in the HEAD
@@ -62,7 +63,7 @@ public interface ScmDomain extends Domain {
      * {@code fileName} if it exists in the HEAD revision. If the file does not
      * exist in the revision <code>null</code> will be returned.
      */
-    File get(String file);
+    OpenEngSBFileModel get(String file);
 
     /**
      * Check if file identified by its {@code fileName} exists in a revision
@@ -77,7 +78,7 @@ public interface ScmDomain extends Domain {
      * {@link CommitRef}. If the file does not exist in the revision
      * <code>null</code> will be returned.
      */
-    File get(String fileName, CommitRef ref);
+    OpenEngSBFileModel get(String fileName, CommitRef ref);
 
     /**
      * Returns the {@link CommitRef} of the current HEAD in the repository or
