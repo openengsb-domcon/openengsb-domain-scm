@@ -30,7 +30,7 @@
     <bundle.symbolicName>org.openengsb.domain.scm</bundle.symbolicName>
     <bundle.namespace>org.openengsb.domain.scm</bundle.namespace>
     <domain.name>ScmDomain</domain.name>
-    <openengsb.compile.version>2.1.2</openengsb.compile.version>
+    <openengsb.compile.version>2.5.0-SNAPSHOT</openengsb.compile.version>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
