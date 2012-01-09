@@ -21,6 +21,6 @@ import org.openengsb.core.api.DomainEvents;
 
 // @extract-start ScmDomainEvents
 public interface ScmDomainEvents extends DomainEvents {
-
+    void raiseEvent(UpdateEvent e);
 }
 // @extract-end
