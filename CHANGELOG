@@ -1,7 +1,8 @@
 openengsb-domain-scm-2.0.0 2012-01-09
 ---------------------------------------------------------------------
 
-This release only adapts the SCM domain to the latest OpenEngSB version (2.4.0) and further.
+This release upgrades the SCM domain to a) work with the latest version of the OpenEngSB and b) incorporated the
+latest features of the new version (EDB integration, WSDLs for easy bridge integration, dedicated documentation).
 
 ### Details
 ** Bug
