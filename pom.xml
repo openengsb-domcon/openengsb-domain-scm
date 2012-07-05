@@ -31,6 +31,7 @@
     <bundle.namespace>org.openengsb.domain.scm</bundle.namespace>
     <domain.name>ScmDomain</domain.name>
     <openengsb.compile.version>3.0.0-SNAPSHOT</openengsb.compile.version>
+    <labs.delegation.version>0.1.0</labs.delegation.version>
   </properties>
 
   <modelVersion>4.0.0</modelVersion>
@@ -122,6 +123,11 @@
       <artifactId>org.openengsb.framework.common</artifactId>
       <version>${openengsb.compile.version}</version>
       <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.openengsb.labs.delegation</groupId>
+      <artifactId>org.openengsb.labs.delegation.service</artifactId>
+      <version>${labs.delegation.version}</version>
     </dependency>
   </dependencies>
 
