@@ -42,7 +42,7 @@
   
   <section>
     <title>Event Interface</title>
-    <para>The following interface presents the events an appointment connector can throw:</para>
+    <para>The following interface presents the events an scm connector can throw:</para>
     <xi:include href="snippets/ScmDomainEvents.xml"/>
   </section>
 
