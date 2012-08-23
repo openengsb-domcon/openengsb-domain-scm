@@ -33,6 +33,7 @@
 *.ipr
 *.iws
 *classes
+*.idea
 
 #=================
 #netbeans-project
